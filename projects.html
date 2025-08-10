@@ -1,38 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projects | Mohamed Khelifi</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
+
 <body>
     <!-- Header -->
     <header>
-    <div class="container header-content">
-        <a href="index.html" class="logo">MK<span>.</span></a>
-        <button class="mobile-menu-toggle" aria-label="Toggle menu">
-            <i class="fas fa-bars"></i>
-        </button>
-        <nav class="nav-links">
-            <a href="index.html">Home</a>
-            <a href="skills.html">Skills</a>
-            <a href="experience.html">Experience</a>
-            <a href="projects.html" class="active">Projects</a>
-            <a href="education.html">Education</a>
-            <a href="creative.html">Creativity</a>
-            <a href="#contact">Contact</a>
-        </nav>
-    </div>
-</header>
+        <div class="container header-content">
+            <a href="index.html" class="logo">MK<span>.</span></a>
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="skills.html">Skills</a>
+                <a href="experience.html">Experience</a>
+                <a href="projects.html" class="active">Projects</a>
+                <a href="education.html">Education</a>
+                <a href="creative.html">Creativity</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
 
     <!-- Projects Main Section -->
     <section class="projects-section">
         <div class="container">
             <h2 class="section-title">Technical Projects</h2>
             <div class="projects-grid">
+
+                <!-- Actia Internship Project -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="actiahq.jpg" alt="Actia Internship Project">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Actia IoT & Cloud Engineering Internship</h3>
+                        <div class="project-date"><i class="far fa-calendar-alt"></i> Jul 2025 - Sep 2025</div>
+                        <p class="project-description">Developed a cloud-based IoT solution for real-time sensor data
+                            monitoring and predictive analytics to detect leaks, leveraging Azure, IoT devices, and
+                            machine learning models.</p>
+                        <ul class="project-description">
+                            <li>Cloud Architecture: Designed on Microsoft Azure platform</li>
+                            <li>IoT Integration: Sensor data ingestion and processing</li>
+                            <li>Data Visualization: Built dashboards with Angular</li>
+                            <li>Machine Learning: Applied predictive analytics for leak detection</li>
+                        </ul>
+                        <div class="project-skills">
+                            <span class="skill-tag">Azure</span>
+                            <span class="skill-tag">IoT</span>
+                            <span class="skill-tag">Angular</span>
+                            <span class="skill-tag">Machine Learning</span>
+                            <span class="skill-tag">Python</span>
+                        </div>
+                    </div>
+                </div>
+
+
+
                 <div class="project-card">
                     <div class="project-image">
                         <img src="assets/images/openstack.jpg" alt="OpenStack Project">
@@ -40,7 +74,9 @@
                     <div class="project-content">
                         <h3 class="project-title">OpenStack Cloud Infrastructure</h3>
                         <div class="project-date"><i class="far fa-calendar-alt"></i> Oct 2024 - May 2025</div>
-                        <p class="project-description">Designed and implemented a production-grade private cloud solution using OpenStack, featuring multi-node architecture with Kubernetes integration and full monitoring stack.</p>
+                        <p class="project-description">Designed and implemented a production-grade private cloud
+                            solution using OpenStack, featuring multi-node architecture with Kubernetes integration and
+                            full monitoring stack.</p>
                         <ul class="project-description">
                             <li>Multi-node Architecture: Controller + 3 Compute nodes + Storage Node</li>
                             <li>Infrastructure Automation: Ansible playbooks + Heat orchestration</li>
@@ -53,7 +89,8 @@
                             <span class="skill-tag">Ansible</span>
                             <span class="skill-tag">Prometheus</span>
                             <span class="skill-tag">Grafana</span>
-                            <a href="https://www.linkedin.com/feed/update/urn:li:activity:7330013741582827521/" class="skill-tag github-tag" target="_blank">
+                            <a href="https://www.linkedin.com/feed/update/urn:li:activity:7330013741582827521/"
+                                class="skill-tag github-tag" target="_blank">
                                 <i class="fab fa-github"></i> View on GitHub
                             </a>
                         </div>
@@ -67,7 +104,9 @@
                     <div class="project-content">
                         <h3 class="project-title">Lemon Interactive - Sustainable Marketplace</h3>
                         <div class="project-date"><i class="far fa-calendar-alt"></i> Dec 2024 - Present</div>
-                        <p class="project-description">A sustainable marketplace in Saudi Arabia for quality pre-owned clothes, books, and collectibles, promoting circular consumption and eco-friendly living.</p>
+                        <p class="project-description">A sustainable marketplace in Saudi Arabia for quality pre-owned
+                            clothes, books, and collectibles, promoting circular consumption and eco-friendly living.
+                        </p>
                         <ul class="project-description">
                             <li>Sustainable Commerce: Platform for buying/selling pre-owned items</li>
                             <li>Circular Economy: Promotes reuse and reduces waste</li>
@@ -96,7 +135,8 @@
                     <div class="project-content">
                         <h3 class="project-title">Prestacode's Billing System</h3>
                         <div class="project-date"><i class="far fa-calendar-alt"></i> Jun 2024 - Aug 2024</div>
-                        <p class="project-description">Comprehensive billing system with Angular frontend and Spring Boot backend featuring full CRUD functionality and RESTful APIs.</p>
+                        <p class="project-description">Comprehensive billing system with Angular frontend and Spring
+                            Boot backend featuring full CRUD functionality and RESTful APIs.</p>
                         <ul class="project-description">
                             <li>CRUD Functionality: Managed invoices, clients, and payment methods</li>
                             <li>User-friendly Interface: Responsive UI with Bootstrap</li>
@@ -108,7 +148,8 @@
                             <span class="skill-tag">Spring Boot</span>
                             <span class="skill-tag">MySQL</span>
                             <span class="skill-tag">RESTful APIs</span>
-                            <a href="https://github.com/Hamoda73/Prestacode-Billing-System" class="skill-tag github-tag" target="_blank">
+                            <a href="https://github.com/Hamoda73/Prestacode-Billing-System" class="skill-tag github-tag"
+                                target="_blank">
                                 <i class="fab fa-github"></i> View on GitHub
                             </a>
                         </div>
@@ -122,7 +163,8 @@
                     <div class="project-content">
                         <h3 class="project-title">Complaints Management System</h3>
                         <div class="project-date"><i class="far fa-calendar-alt"></i> Jan 2024 - May 2024</div>
-                        <p class="project-description">Developed a comprehensive Complaints Management System improving issue resolution efficiency with automated notifications and analytics.</p>
+                        <p class="project-description">Developed a comprehensive Complaints Management System improving
+                            issue resolution efficiency with automated notifications and analytics.</p>
                         <ul class="project-description">
                             <li>Automated Email Notifications: Symfony-based email module</li>
                             <li>Comprehensive Statistics: Detailed reports and analytics</li>
@@ -148,7 +190,8 @@
                     <div class="project-content">
                         <h3 class="project-title">JavaFX Complaints System</h3>
                         <div class="project-date"><i class="far fa-calendar-alt"></i> Jan 2024 - May 2024</div>
-                        <p class="project-description">Desktop application for complaints management with JavaFX featuring automated alerts and statistical tools.</p>
+                        <p class="project-description">Desktop application for complaints management with JavaFX
+                            featuring automated alerts and statistical tools.</p>
                         <ul class="project-description">
                             <li>Automated Email Alerts: JavaMail API integration</li>
                             <li>Statistical Tools: JavaFX charts for analytics</li>
@@ -160,7 +203,8 @@
                             <span class="skill-tag">JavaFX</span>
                             <span class="skill-tag">SceneBuilder</span>
                             <span class="skill-tag">PL/SQL</span>
-                            <a href="https://github.com/Hamoda73/Prestacode-Billing-System" class="skill-tag github-tag" target="_blank">
+                            <a href="https://github.com/Hamoda73/Prestacode-Billing-System" class="skill-tag github-tag"
+                                target="_blank">
                                 <i class="fab fa-github"></i> View on GitHub
                             </a>
                         </div>
@@ -195,4 +239,5 @@
 
     <script src="assets/js/main.js"></script>
 </body>
+
 </html>
