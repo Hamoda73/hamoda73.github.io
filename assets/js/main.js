@@ -1,12 +1,15 @@
+
 // Main JavaScript for Mohamed Khelifi's Portfolio
-document.addEventListener('DOMContentLoaded', function() {
+
+document.addEventListener('DOMContentLoaded', function () {
+
     // ========== Mobile Menu Toggle ==========
     function setupMobileMenu() {
         const headerContent = document.querySelector('.header-content');
         if (!headerContent) return;
-        
-        // Create mobile menu toggle button if it doesn't exist
+
         let mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+
         if (!mobileMenuToggle) {
             mobileMenuToggle = document.createElement('button');
             mobileMenuToggle.className = 'mobile-menu-toggle';
@@ -14,18 +17,20 @@ document.addEventListener('DOMContentLoaded', function() {
             mobileMenuToggle.innerHTML = '<i class="fas fa-bars"></i>';
             headerContent.appendChild(mobileMenuToggle);
         }
-        
+
         const navLinks = document.querySelector('.nav-links');
         if (!navLinks) return;
-        
-        mobileMenuToggle.addEventListener('click', function() {
+
+        mobileMenuToggle.addEventListener('click', function () {
             const isActive = navLinks.classList.toggle('active');
-            mobileMenuToggle.innerHTML = isActive ? 
-                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+
+            mobileMenuToggle.innerHTML = isActive
+                ? '<i class="fas fa-times"></i>'
+                : '<i class="fas fa-bars"></i>';
+
             mobileMenuToggle.setAttribute('aria-expanded', isActive);
         });
-        
-        // Close menu when clicking on nav links
+
         document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', () => {
                 if (window.innerWidth <= 768) {
@@ -36,139 +41,189 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     }
-    
+
     // ========== Smooth Scrolling ==========
     function setupSmoothScrolling() {
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
+            anchor.addEventListener('click', function (e) {
                 const targetId = this.getAttribute('href');
+
                 if (targetId === '#' || targetId === '#!') return;
-                
-                e.preventDefault();
+
                 const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    const headerHeight = document.querySelector('header')?.offsetHeight || 0;
-                    const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
-                    
-                    window.scrollTo({
-                        top: targetPosition,
-                        behavior: 'smooth'
-                    });
-                    
-                    // Update URL without jumping
-                    if (history.pushState) {
-                        history.pushState(null, null, targetId);
-                    } else {
-                        window.location.hash = targetId;
-                    }
+                if (!targetElement) return;
+
+                e.preventDefault();
+
+                const headerHeight =
+                    document.querySelector('header')?.offsetHeight || 0;
+
+                const targetPosition =
+                    targetElement.getBoundingClientRect().top +
+                    window.pageYOffset -
+                    headerHeight;
+
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+
+                if (history.pushState) {
+                    history.pushState(null, null, targetId);
+                } else {
+                    window.location.hash = targetId;
                 }
             });
         });
     }
-    
+
     // ========== Active Section Highlighting ==========
     function setupActiveSectionHighlight() {
         const sections = document.querySelectorAll('section[id]');
         const navItems = document.querySelectorAll('.nav-links a');
-        
+
         if (sections.length === 0 || navItems.length === 0) return;
-        
+
         function highlightNavItem() {
             let current = '';
             const scrollPosition = window.pageYOffset + 200;
-            
+
             sections.forEach(section => {
                 const sectionTop = section.offsetTop;
                 const sectionHeight = section.offsetHeight;
-                
-                if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+
+                if (
+                    scrollPosition >= sectionTop &&
+                    scrollPosition < sectionTop + sectionHeight
+                ) {
                     current = section.getAttribute('id');
                 }
             });
-            
+
             navItems.forEach(item => {
                 item.classList.remove('active');
+
                 const href = item.getAttribute('href');
-                if (href === `#${current}` || href.includes(current)) {
+
+                if (current && href === `#${current}`) {
                     item.classList.add('active');
                 }
             });
         }
-        
+
         window.addEventListener('scroll', highlightNavItem);
-        highlightNavItem(); // Run once on load
+        highlightNavItem();
     }
-    
+
     // ========== Animation on Scroll ==========
     function setupScrollAnimations() {
         const animatedElements = document.querySelectorAll(
             '.skill-card, .timeline-content, .project-card, .education-item, .certification-item'
         );
-        
+
         if (animatedElements.length === 0) return;
-        
-        // Set initial state
+
         animatedElements.forEach(el => {
             el.style.opacity = '0';
             el.style.transform = 'translateY(20px)';
-            el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            el.style.transition =
+                'opacity 0.5s ease, transform 0.5s ease';
         });
-        
+
         function animateElements() {
             const screenPosition = window.innerHeight / 1.2;
-            
+
             animatedElements.forEach(element => {
-                const elementPosition = element.getBoundingClientRect().top;
-                
+                const elementPosition =
+                    element.getBoundingClientRect().top;
+
                 if (elementPosition < screenPosition) {
                     element.style.opacity = '1';
                     element.style.transform = 'translateY(0)';
                 }
             });
         }
-        
+
         window.addEventListener('scroll', animateElements);
-        animateElements(); // Run once on load
+        animateElements();
     }
-    
-    // ========== Dark Mode Toggle ==========
+
+    // ========== Dark / Light Mode Toggle ==========
     function setupDarkModeToggle() {
-        const darkModeToggle = document.createElement('button');
-        darkModeToggle.className = 'dark-mode-toggle';
-        darkModeToggle.setAttribute('aria-label', 'Toggle dark mode');
-        darkModeToggle.innerHTML = '<i class="fas fa-moon"></i>';
-        
         const header = document.querySelector('.header-content');
-        if (header) {
+        if (!header) return;
+
+        let darkModeToggle = document.querySelector('.dark-mode-toggle');
+
+        if (!darkModeToggle) {
+            darkModeToggle = document.createElement('button');
+            darkModeToggle.className = 'dark-mode-toggle';
+            darkModeToggle.type = 'button';
             header.appendChild(darkModeToggle);
-        } else {
-            return;
         }
-        
+
         function setDarkMode(isDark) {
+            document.body.classList.toggle('dark-mode', isDark);
             document.body.classList.toggle('light-mode', !isDark);
-            darkModeToggle.innerHTML = isDark ? 
-                '<i class="fas fa-moon"></i>' : '<i class="fas fa-sun"></i>';
-            localStorage.setItem('darkMode', isDark ? 'on' : 'off');
+
+            // Match browser-native controls to the selected theme.
+            document.documentElement.style.colorScheme =
+                isDark ? 'dark' : 'light';
+
+            // The icon indicates the theme the user can switch to.
+            darkModeToggle.innerHTML = isDark
+                ? '<i class="fas fa-sun"></i>'
+                : '<i class="fas fa-moon"></i>';
+
+            darkModeToggle.setAttribute(
+                'aria-label',
+                isDark ? 'Switch to light mode' : 'Switch to dark mode'
+            );
+
+            darkModeToggle.setAttribute(
+                'title',
+                isDark ? 'Switch to light mode' : 'Switch to dark mode'
+            );
+
+            try {
+                localStorage.setItem('darkMode', isDark ? 'on' : 'off');
+            } catch (error) {
+                console.warn('Could not save theme preference:', error);
+            }
         }
-        
-        darkModeToggle.addEventListener('click', function() {
-            const isDark = !document.body.classList.contains('light-mode');
-            setDarkMode(!isDark);
+
+        darkModeToggle.addEventListener('click', function () {
+            const currentlyDark =
+                document.body.classList.contains('dark-mode');
+
+            setDarkMode(!currentlyDark);
         });
-        
-        // Check for saved preference or prefer color scheme
-        const savedMode = localStorage.getItem('darkMode');
-        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        
-        if (savedMode === 'off' || (!savedMode && !prefersDark)) {
-            setDarkMode(false);
-        } else {
-            setDarkMode(true);
+
+        // Restore the saved preference.
+        // If there is no saved preference, follow the operating system.
+        let savedMode = null;
+
+        try {
+            savedMode = localStorage.getItem('darkMode');
+        } catch (error) {
+            console.warn('Could not read theme preference:', error);
         }
+
+        const prefersDark =
+            window.matchMedia &&
+            window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+        const shouldUseDark =
+            savedMode === 'on'
+                ? true
+                : savedMode === 'off'
+                    ? false
+                    : prefersDark;
+
+        setDarkMode(shouldUseDark);
     }
-    
-    // ========== Initialize All Functions ==========
+
+    // ========== Initialize ==========
     setupMobileMenu();
     setupSmoothScrolling();
     setupActiveSectionHighlight();
@@ -176,26 +231,25 @@ document.addEventListener('DOMContentLoaded', function() {
     setupDarkModeToggle();
 });
 
+
 // ========== Form Validation ==========
 function validateForm(formId) {
     const form = document.forms[formId];
-    if (!form) return true; // If form doesn't exist, return true
-    
+    if (!form) return true;
+
     const name = form.elements["name"]?.value.trim();
     const email = form.elements["email"]?.value.trim();
     const message = form.elements["message"]?.value.trim();
-    
-    // Simple validation
+
     if (!name || !email || !message) {
         alert("Please fill all required fields");
         return false;
     }
-    
-    // Basic email validation
+
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
         alert("Please enter a valid email address");
         return false;
     }
-    
+
     return true;
 }
