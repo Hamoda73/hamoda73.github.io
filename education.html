@@ -1,254 +1,173 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Education | Mohamed Khelifi</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>Education | Mohamed Khelifi</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fff;--bg2:#f5f5f7;--card:#fff;--fg:#1d1d1f;--mut:#6e6e73;--line:rgba(0,0,0,.1);--nav:rgba(255,255,255,.78);--blue:#0071e3;--link:#0066cc;--chip:rgba(0,0,0,.06);
+--font:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text",Inter,"Segoe UI",Helvetica,Arial,sans-serif}
+@media(prefers-color-scheme:dark){:root{--bg:#000;--bg2:#161617;--card:#1d1d1f;--fg:#f5f5f7;--mut:#a1a1a6;--line:rgba(255,255,255,.14);--nav:rgba(22,22,23,.78);--blue:#0a84ff;--link:#2997ff;--chip:rgba(255,255,255,.1)}}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:var(--font);background:var(--bg);color:var(--fg);line-height:1.47;-webkit-font-smoothing:antialiased;padding-bottom:env(safe-area-inset-bottom,0)}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:3px solid var(--blue);outline-offset:3px;border-radius:8px}
+.container{width:min(1080px,100% - 48px);margin-inline:auto}
+header{position:sticky;top:0;z-index:50;background:var(--nav);-webkit-backdrop-filter:saturate(180%) blur(20px);backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--line);padding-top:env(safe-area-inset-top,0)}
+.header-content{display:flex;align-items:center;justify-content:space-between;height:52px;position:relative}
+.logo{font-weight:700;font-size:1.25rem;letter-spacing:-.03em}.logo span{color:var(--blue)}
+.nav-links{display:flex;gap:28px;font-size:.8125rem}
+.nav-links a{color:var(--mut);transition:color .2s}.nav-links a:hover,.nav-links a.active{color:var(--fg)}
+.mobile-menu-toggle{display:none;background:none;border:0;color:var(--fg);font-size:1.15rem;padding:8px;cursor:pointer}
+@media(max-width:820px){
+.mobile-menu-toggle{display:block}
+.nav-links{display:none;position:absolute;top:52px;left:-24px;right:-24px;flex-direction:column;gap:0;background:var(--bg);border-bottom:1px solid var(--line);padding:8px 24px 16px;font-size:1.0625rem}
+.nav-links a{padding:12px 0;border-bottom:1px solid var(--line);color:var(--fg)}
+.nav-links.active,.nav-links.open,.nav-links.show,.nav-links.is-open,body.menu-open .nav-links,body.nav-open .nav-links{display:flex}}
+.btn{display:inline-block;background:var(--blue);color:#fff;font-size:1.0625rem;font-weight:500;padding:12px 24px;border-radius:980px;transition:filter .2s}.btn:hover{filter:brightness(1.1)}
+
+/* Sections */
+.education-section{padding:72px 0 88px;background:var(--bg2)}
+.page-title{font-size:clamp(2.5rem,7vw,4.5rem);font-weight:700;letter-spacing:-.045em;line-height:1.04;text-align:center}
+.section-subtitle{max-width:620px;margin:16px auto 52px;text-align:center;color:var(--mut);font-size:1.1875rem}
+.block-title{font-size:clamp(1.5rem,3.5vw,2rem);font-weight:700;letter-spacing:-.03em;line-height:1.1;margin:64px 0 20px}
+.card{background:var(--card);border-radius:28px;padding:32px}
+.card h3{font-size:1.5rem;font-weight:600;letter-spacing:-.02em;line-height:1.2}
+.card h4{font-size:.8125rem;font-weight:600;color:var(--mut);text-transform:uppercase;letter-spacing:.04em;margin:22px 0 8px}
+.card p{margin-top:12px;color:var(--mut);font-size:1.0625rem}
+.card ul{padding-left:1.15em;font-size:1.0625rem}
+.card li{margin-top:6px}.card li::marker{color:var(--mut)}
+.meta{display:flex;flex-wrap:wrap;gap:4px 16px;margin-top:6px;color:var(--mut);font-size:.9375rem}
+.meta i{color:var(--blue);margin-right:6px}
+.tags{display:flex;flex-wrap:wrap;gap:8px}
+.tag{display:inline-block;background:var(--chip);padding:4px 12px;border-radius:980px;font-size:.8125rem;font-weight:500}
+.stack{display:grid;gap:16px}
+
+/* Certifications & languages */
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.cert-card{display:flex;flex-direction:column}
+.cert-icon{font-size:1.75rem;color:var(--blue);margin-bottom:22px}
+.cert-card h3{font-size:1.3125rem}
+.cert-card p{font-size:1rem}
+.cert-card .tags{margin-top:16px}
+.cert-card .link{margin-top:auto;padding-top:18px;color:var(--link);font-size:1rem}
+.cert-card .link:hover{text-decoration:underline}
+.cert-card .link::after{content:" \203A"}
+.lang-card{padding:24px}
+.lang-card h3{font-size:1.25rem}
+.lang-level{margin-top:10px;font-size:2rem;font-weight:700;letter-spacing:-.03em;line-height:1}
+.lang-card p{margin-top:8px;font-size:.9375rem}
+
+/* Footer */
+footer{background:var(--bg);padding:88px 0 40px;text-align:center}
+.u-cta h2{font-size:clamp(2.25rem,6vw,4rem);font-weight:700;letter-spacing:-.04em;line-height:1.05}
+.u-cta p{max-width:48ch;margin:16px auto 28px;color:var(--mut);font-size:1.1875rem}
+.social-links{display:flex;gap:6px;justify-content:center;margin-top:36px}
+.social-links a{width:40px;height:40px;display:grid;place-items:center;border-radius:50%;font-size:1.1rem;color:var(--mut);transition:background .2s,color .2s}
+.social-links a:hover{background:var(--chip);color:var(--fg)}
+.footer-links{display:flex;flex-wrap:wrap;gap:6px 24px;justify-content:center;margin-top:48px;padding-top:24px;border-top:1px solid var(--line);font-size:.8125rem;color:var(--mut)}
+.footer-links a:hover,.footer-links a.active{color:var(--fg)}
+.copyright{margin-top:14px;font-size:.75rem;color:var(--mut)}
+
+@media(max-width:980px){.grid4{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:820px){.education-section{padding:48px 0 64px}.grid3{grid-template-columns:1fr}.card{padding:24px}}
+@media(max-width:480px){.grid4{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
 </head>
 <body>
-    <!-- Header -->
-   <header>
-    <div class="container header-content">
-        <a href="index.html" class="logo">MK<span>.</span></a>
-        <button class="mobile-menu-toggle" aria-label="Toggle menu">
-            <i class="fas fa-bars"></i>
-        </button>
-        <nav class="nav-links">
-            <a href="index.html">Home</a>
-            <a href="skills.html">Skills</a>
-            <a href="experience.html">Experience</a>
-            <a href="projects.html">Projects</a>
-            <a href="education.html" class="active">Education</a>
-            <a href="creative.html" >Creativity</a>
-            <a href="#contact">Contact</a>
-        </nav>
-    </div>
+<header>
+  <div class="container header-content">
+    <a href="index.html" class="logo">MK<span>.</span></a>
+    <button class="mobile-menu-toggle" aria-label="Toggle menu"><i class="fas fa-bars"></i></button>
+    <nav class="nav-links"><a href="index.html">Home</a><a href="skills.html">Skills</a><a href="experience.html">Experience</a><a href="projects.html">Projects</a><a href="education.html" class="active">Education</a><a href="creative.html">Creativity</a><a href="#contact">Contact</a></nav>
+  </div>
 </header>
 
-    <!-- Education Main Section -->
-    <section class="education-section">
-        <div class="container">
-            <h2 class="section-title">Education</h2>
-            
-            <div class="education-item">
-                <div class="education-header">
-                    <h3 class="education-title">Engineer's degree, Computer Science</h3>
-                    <div class="education-date">Sep 2021 - Dec 2026</div>
-                </div>
-                <div class="education-institution">
-                    <i class="fas fa-university"></i> Ecole Supérieure Privée d'Ingénierie et de Technologies - ESPRIT
-                </div>
-                <p class="education-description">
-                    Comprehensive computer science education with focus on practical software development and system administration.
-                </p>
-                
-                <div class="education-details">
-                    <h4>Key Focus Areas:</h4>
-                    <ul>
-                        <li>Developed multiple full-stack applications using modern frameworks</li>
-                        <li>Gained deep understanding of algorithms and data structures</li>
-                        <li>Mastered Linux system administration and shell scripting</li>
-                        <li>Completed cloud computing projects with OpenStack and AWS</li>
-                    </ul>
-                    
-                    <h4>Core Coursework:</h4>
-                    <div class="course-highlights">
-                        <span class="course-tag">Advanced Algorithms</span>
-                        <span class="course-tag">Cloud Architecture</span>
-                        <span class="course-tag">Database Systems</span>
-                        <span class="course-tag">Operating Systems</span>
-                        <span class="course-tag">Network Security</span>
-                        <span class="course-tag">Web Development</span>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="education-item">
-                <div class="education-header">
-                    <h3 class="education-title">High School Diploma</h3>
-                    <div class="education-date">Graduated 2021</div>
-                </div>
-                <div class="education-institution">
-                    <i class="fas fa-school"></i> EFIR – Ecole Française Internationale de Riyad
-                </div>
-                <p class="education-description">
-                    Scientific track with strong foundation in mathematics and sciences.
-                </p>
-                
-                <div class="education-details">
-                    <h4>Academic Focus:</h4>
-                    <ul>
-                        <li>Specialized in mathematics and physics</li>
-                        <li>Completed optional German language courses</li>
-                        <li>Developed foundational programming skills</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="certifications">
-                <h2 class="section-title" style="margin-top: 4rem;">Certifications</h2>
-                
-                <div class="certification-item">
-                    <div class="certification-header">
-                        <h3 class="certification-title">Cisco Certified Network Associate (CCNA)</h3>
-                        <div class="certification-date">Issued May 2024</div>
-                    </div>
-                    <div class="certification-issuer">
-                        <i class="fas fa-certificate"></i> Cisco Networking Academy
-                    </div>
-                    <p class="certification-description">
-                        Professional certification validating comprehensive networking knowledge.
-                    </p>
-                    
-                    <div class="certification-details">
-                        <h4>Skills Validated:</h4>
-                        <ul>
-                            <li>Network fundamentals and architecture</li>
-                            <li>IP connectivity and services configuration</li>
-                            <li>Security fundamentals implementation</li>
-                            <li>Automation and programmability</li>
-                        </ul>
-                        <a href="https://www.credly.com/badges/34ad8c6f-d2e2-40c4-b6d7-3535dcd7b345/public_url" class="view-credentials" target="_blank">
-                            <i class="fas fa-external-link-alt"></i> View Credentials
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="certification-item">
-                    <div class="certification-header">
-                        <h3 class="certification-title">Red Hat Certified Engineer (RHCE)</h3>
-                        <div class="certification-date">Expected Dec 2024</div>
-                    </div>
-                    <div class="certification-issuer">
-                        <i class="fab fa-redhat"></i> Red Hat
-                    </div>
-                    <p class="certification-description">
-                        Advanced certification for enterprise Linux system administration.
-                    </p>
-                    
-                    <div class="certification-details">
-                        <h4>Current Preparation:</h4>
-                        <ul>
-                            <li>Mastering Ansible automation for configuration management</li>
-                            <li>Building complex deployment playbooks</li>
-                            <li>Implementing system roles and inventory management</li>
-                        </ul>
-                        <span class="certification-status">In Progress</span>
-                    </div>
-                </div>
-                
-                <div class="certification-item">
-                    <div class="certification-header">
-                        <h3 class="certification-title">Red Hat Certified System Administrator (RHCSA)</h3>
-                        <div class="certification-date">Expected Sep 2024</div>
-                    </div>
-                    <div class="certification-issuer">
-                        <i class="fab fa-redhat"></i> Red Hat
-                    </div>
-                    <p class="certification-description">
-                        Foundational certification for Linux system administration.
-                    </p>
-                    
-                    <div class="certification-details">
-                        <h4>Preparation Status:</h4>
-                        <ul>
-                            <li>Completed EX200 curriculum with hands-on labs</li>
-                            <li>Proficient in filesystem hierarchy and management</li>
-                            <li>Mastered user/group permissions and security</li>
-                        </ul>
-                        <span class="certification-status">In Progress</span>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="languages" style="margin-top: 4rem;">
-                <h2 class="section-title">Languages</h2>
-                <div class="skills-grid" style="margin-top: 2rem;">
-                    <div class="skill-card">
-                        <div class="skill-icon">
-                            <i class="fas fa-language"></i>
-                        </div>
-                        <h3>Arabic</h3>
-                        <p>Native proficiency</p>
-                        <div class="education-details">
-                            <ul>
-                                <li>Fluent in Modern Standard Arabic</li>
-                                <li>Native Tunisian dialect speaker</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="skill-card">
-                        <div class="skill-icon">
-                            <i class="fas fa-language"></i>
-                        </div>
-                        <h3>English</h3>
-                        <p>B2 Level (College Assessed)</p>
-                        <div class="education-details">
-                            <ul>
-                                <li>Professional working proficiency</li>
-                                <li>Technical documentation comprehension</li>
-                                <li>Academic writing experience</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="skill-card">
-                        <div class="skill-icon">
-                            <i class="fas fa-language"></i>
-                        </div>
-                        <h3>French</h3>
-                        <p>B2 Level</p>
-                        <div class="education-details">
-                            <ul>
-                                <li>DELF B2 certification</li>
-                                <li>Business correspondence</li>
-                                <li>Technical translation</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="skill-card">
-                        <div class="skill-icon">
-                            <i class="fas fa-language"></i>
-                        </div>
-                        <h3>German</h3>
-                        <p>Intermediate proficiency</p>
-                        <div class="education-details">
-                            <ul>
-                                <li>Completed high school coursework</li>
-                                <li>Basic conversation and reading skills</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<section class="education-section">
+  <div class="container">
+    <h2 class="page-title">Education</h2>
+    <p class="section-subtitle">An engineering degree in Computer Science with a Cloud Computing specialization, plus industry training in Linux, networking and cloud.</p>
 
-    <!-- Footer -->
-    <footer id="contact">
-        <div class="container">
-            <div class="footer-links">
-                <a href="index.html">Home</a>
-                <a href="skills.html">Skills</a>
-                <a href="experience.html">Experience</a>
-                <a href="projects.html">Projects</a>
-                <a href="education.html" class="active">Education</a>
-                <a href="creative.html">Creativity</a>
-                <a href="#contact">Contact</a>
-            </div>
-            <div class="social-links">
-                <a href="#"><i class="fab fa-github"></i></a>
-                <a href="#"><i class="fab fa-linkedin"></i></a>
-                <a href="https://youtube.com/@Hamodeestuff"><i class="fab fa-youtube"></i></a>
-                <a href="https://instagram.com/hamodasart"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fas fa-envelope"></i></a>
-            </div>
-            <p class="copyright">© 2024 Mohamed Khelifi. All rights reserved.</p>
-        </div>
-    </footer>
+    <div class="stack">
+      <div class="card">
+        <h3>National Engineering Degree in Computer Science</h3>
+        <div class="meta"><span><i class="fas fa-university"></i>Esprit School of Engineering, Ariana, Tunisia</span><span><i class="far fa-calendar-alt"></i>Sep 2021 – 2026</span></div>
+        <p>Cloud Computing specialization, EUR-ACE CTI accredited. Covered software development, cloud-native architecture, DevOps practices, cloud security and Linux administration, applied through software projects and the design of secure, scalable cloud infrastructures.</p>
+        <h4>Key focus areas</h4>
+        <ul>
+          <li>Full-stack applications with modern frameworks</li>
+          <li>Cloud infrastructure with OpenStack, GCP, Azure and AWS</li>
+          <li>CI/CD pipelines, containers and Kubernetes</li>
+          <li>Linux system administration and hardening</li>
+        </ul>
+        <h4>Core coursework</h4>
+        <div class="tags"><span class="tag">Cloud-Native Architecture</span><span class="tag">DevOps</span><span class="tag">Cloud Security</span><span class="tag">Linux Administration</span><span class="tag">Software Development</span><span class="tag">Network Security</span></div>
+      </div>
 
-    <script src="assets/js/main.js"></script>
+      <div class="card">
+        <h3>High School Diploma</h3>
+        <div class="meta"><span><i class="fas fa-school"></i>EFIR – École Française Internationale de Riyad</span><span><i class="far fa-calendar-alt"></i>Graduated 2021</span></div>
+        <p>Scientific track with a strong foundation in mathematics and sciences, including optional German courses.</p>
+      </div>
+    </div>
+
+    <h2 class="block-title">Certifications & Training</h2>
+    <div class="grid3">
+      <div class="card cert-card">
+        <div class="cert-icon"><i class="fab fa-aws"></i></div>
+        <h3>AWS Academy Graduate</h3>
+        <p>Training badges in Cloud Foundations, Cloud Operations and Cloud Security Foundations.</p>
+        <div class="tags"><span class="tag">AWS</span><span class="tag">Cloud Security</span></div>
+      </div>
+      <div class="card cert-card">
+        <div class="cert-icon"><i class="fab fa-redhat"></i></div>
+        <h3>Red Hat System Administration</h3>
+        <p>Completed RHCSA and RHCE training, covering system administration and Ansible automation.</p>
+        <div class="tags"><span class="tag">RHCSA</span><span class="tag">RHCE</span><span class="tag">Ansible</span></div>
+      </div>
+      <div class="card cert-card">
+        <div class="cert-icon"><i class="fas fa-network-wired"></i></div>
+        <h3>Cisco Networking Academy</h3>
+        <p>Graduate of the CCNA and CCNP tracks: routing, switching and network security.</p>
+        <div class="tags"><span class="tag">CCNA</span><span class="tag">CCNP</span></div>
+        <a class="link" href="https://www.credly.com/badges/34ad8c6f-d2e2-40c4-b6d7-3535dcd7b345/public_url" target="_blank" rel="noopener">View CCNA credential</a>
+      </div>
+    </div>
+
+    <h2 class="block-title">Languages</h2>
+    <div class="grid4">
+      <div class="card lang-card"><h3>Arabic</h3><div class="lang-level">Native</div><p>Native speaker</p></div>
+      <div class="card lang-card"><h3>English</h3><div class="lang-level">B2</div><p>Professional working proficiency</p></div>
+      <div class="card lang-card"><h3>French</h3><div class="lang-level">B2</div><p>Professional working proficiency</p></div>
+      <div class="card lang-card"><h3>German</h3><div class="lang-level">A2</div><p>Elementary</p></div>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="container">
+    <div class="u-cta">
+      <h2>Let's build something.</h2>
+      <p>Hiring a cloud or DevOps engineer? Send me an email.</p>
+      <a href="mailto:md.khelifi@hotmail.com" class="btn">md.khelifi@hotmail.com</a>
+    </div>
+    <div class="social-links">
+      <a href="https://github.com/Hamoda73" aria-label="GitHub"><i class="fab fa-github"></i></a>
+      <a href="https://www.linkedin.com/in/khelifimohamed/" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      <a href="https://x.com/HamodiStuff" aria-label="X (Twitter)"><i class="fab fa-twitter"></i></a>
+      <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="mailto:md.khelifi@hotmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+    </div>
+    <div class="footer-links"><a href="index.html">Home</a><a href="skills.html">Skills</a><a href="experience.html">Experience</a><a href="projects.html">Projects</a><a href="education.html" class="active">Education</a><a href="creative.html">Creativity</a><a href="#contact">Contact</a></div>
+    <p class="copyright">© 2026 Mohamed Khelifi. All rights reserved.</p>
+  </div>
+</footer>
+<script src="assets/js/main.js"></script>
 </body>
 </html>

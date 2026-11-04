@@ -1,203 +1,216 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Experience | Mohamed Khelifi</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-   <link rel="stylesheet" href="assets/css/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>Experience | Mohamed Khelifi</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fff;--bg2:#f5f5f7;--card:#fff;--fg:#1d1d1f;--mut:#6e6e73;--line:rgba(0,0,0,.1);--nav:rgba(255,255,255,.78);--blue:#0071e3;--link:#0066cc;--chip:rgba(0,0,0,.06);
+--font:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text",Inter,"Segoe UI",Helvetica,Arial,sans-serif}
+@media(prefers-color-scheme:dark){:root{--bg:#000;--bg2:#161617;--card:#1d1d1f;--fg:#f5f5f7;--mut:#a1a1a6;--line:rgba(255,255,255,.14);--nav:rgba(22,22,23,.78);--blue:#0a84ff;--link:#2997ff;--chip:rgba(255,255,255,.1)}}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:var(--font);background:var(--bg);color:var(--fg);line-height:1.47;-webkit-font-smoothing:antialiased;padding-bottom:env(safe-area-inset-bottom,0)}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:3px solid var(--blue);outline-offset:3px;border-radius:8px}
+.container{width:min(1080px,100% - 48px);margin-inline:auto}
+header{position:sticky;top:0;z-index:50;background:var(--nav);-webkit-backdrop-filter:saturate(180%) blur(20px);backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--line);padding-top:env(safe-area-inset-top,0)}
+.header-content{display:flex;align-items:center;justify-content:space-between;height:52px;position:relative}
+.logo{font-weight:700;font-size:1.25rem;letter-spacing:-.03em}.logo span{color:var(--blue)}
+.nav-links{display:flex;gap:28px;font-size:.8125rem}
+.nav-links a{color:var(--mut);transition:color .2s}.nav-links a:hover,.nav-links a.active{color:var(--fg)}
+.mobile-menu-toggle{display:none;background:none;border:0;color:var(--fg);font-size:1.15rem;padding:8px;cursor:pointer}
+@media(max-width:820px){
+.mobile-menu-toggle{display:block}
+.nav-links{display:none;position:absolute;top:52px;left:-24px;right:-24px;flex-direction:column;gap:0;background:var(--bg);border-bottom:1px solid var(--line);padding:8px 24px 16px;font-size:1.0625rem}
+.nav-links a{padding:12px 0;border-bottom:1px solid var(--line);color:var(--fg)}
+.nav-links.active,.nav-links.open,.nav-links.show,.nav-links.is-open,body.menu-open .nav-links,body.nav-open .nav-links{display:flex}}
+.btn{display:inline-block;background:var(--blue);color:#fff;font-size:1.0625rem;font-weight:500;padding:12px 24px;border-radius:980px;transition:filter .2s}.btn:hover{filter:brightness(1.1)}
+
+/* Page title */
+.experience-section{padding:72px 0 88px;background:var(--bg2)}
+.section-title{font-size:clamp(2.5rem,7vw,4.5rem);font-weight:700;letter-spacing:-.045em;line-height:1.04;text-align:center}
+.section-subtitle{max-width:620px;margin:16px auto 52px;text-align:center;color:var(--mut);font-size:1.1875rem}
+
+/* Experience: image panel on the left, details on the right */
+.timeline{display:grid;gap:16px}
+.xp-card{background:var(--card);border-radius:28px;padding:8px;display:grid;grid-template-columns:300px minmax(0,1fr);column-gap:8px;align-items:start}
+.xp-media{position:sticky;top:68px;height:300px;border-radius:20px;overflow:hidden;background:var(--chip);
+  display:grid;place-items:center;font-size:3.25rem;color:var(--blue)}
+.xp-img{position:absolute;inset:0;background-size:cover;background-position:center;background-repeat:no-repeat}
+.xp-body{padding:26px 28px 24px;min-width:0}
+.xp-date{font-size:.9375rem;font-weight:500;color:var(--mut)}
+.xp-company{margin-top:6px;font-size:1.75rem;font-weight:600;letter-spacing:-.025em;line-height:1.15}
+.xp-role{margin-top:6px;font-size:1.1875rem;font-weight:500;color:var(--mut)}
+.xp-location{margin-top:2px;font-size:.9375rem;color:var(--mut)}
+.xp-desc{margin-top:16px;font-size:1.0625rem}
+.xp-list{margin-top:14px;padding-left:1.15em;font-size:1.0625rem}
+.xp-list li{margin-top:8px}
+.xp-list li::marker{color:var(--mut)}
+.xp-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.skill-tag{display:inline-block;background:var(--chip);padding:4px 12px;border-radius:980px;font-size:.8125rem;font-weight:500}
+
+/* Footer */
+footer{background:var(--bg);padding:88px 0 40px;text-align:center}
+.u-cta h2{font-size:clamp(2.25rem,6vw,4rem);font-weight:700;letter-spacing:-.04em;line-height:1.05}
+.u-cta p{max-width:48ch;margin:16px auto 28px;color:var(--mut);font-size:1.1875rem}
+.social-links{display:flex;gap:6px;justify-content:center;margin-top:36px}
+.social-links a{width:40px;height:40px;display:grid;place-items:center;border-radius:50%;font-size:1.1rem;color:var(--mut);transition:background .2s,color .2s}
+.social-links a:hover{background:var(--chip);color:var(--fg)}
+.footer-links{display:flex;flex-wrap:wrap;gap:6px 24px;justify-content:center;margin-top:48px;padding-top:24px;border-top:1px solid var(--line);font-size:.8125rem;color:var(--mut)}
+.footer-links a:hover,.footer-links a.active{color:var(--fg)}
+.copyright{margin-top:14px;font-size:.75rem;color:var(--mut)}
+
+@media(max-width:820px){
+.experience-section{padding:48px 0 64px}
+.xp-card{grid-template-columns:1fr;row-gap:0}
+.xp-media{position:relative;top:0;height:200px}
+.xp-body{padding:22px 16px 18px}
+.xp-company{font-size:1.5rem}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-    <div class="container header-content">
-        <a href="index.html" class="logo">MK<span>.</span></a>
-        <button class="mobile-menu-toggle" aria-label="Toggle menu">
-            <i class="fas fa-bars"></i>
-        </button>
-        <nav class="nav-links">
-            <a href="index.html">Home</a>
-            <a href="skills.html">Skills</a>
-            <a href="experience.html" class="active">Experience</a>
-            <a href="projects.html">Projects</a>
-            <a href="education.html">Education</a>
-            <a href="creative.html">Creativity</a>
-            <a href="#contact">Contact</a>
-        </nav>
-    </div>
+<header>
+  <div class="container header-content">
+    <a href="index.html" class="logo">MK<span>.</span></a>
+    <button class="mobile-menu-toggle" aria-label="Toggle menu"><i class="fas fa-bars"></i></button>
+    <nav class="nav-links"><a href="index.html">Home</a><a href="skills.html">Skills</a><a href="experience.html" class="active">Experience</a><a href="projects.html">Projects</a><a href="education.html">Education</a><a href="creative.html">Creativity</a><a href="#contact">Contact</a></nav>
+  </div>
 </header>
 
-    <!-- Experience Main Section -->
-    <section class="experience-section">
-        <div class="container">
-            <h2 class="section-title">Professional Experience</h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="company-logo">
-                            <img src="assets/images/lemon.jpg" alt="Lemon Interactive Logo">
-                        </div>
-                        <div class="timeline-details">
-                            <div class="timeline-date"><i class="far fa-calendar-alt"></i> Sep 2024 - Present</div>
-                            <h3 class="timeline-company">Lemon Interactive</h3>
-                            <h4 class="timeline-position">Founder & Developer</h4>
-                            <p class="timeline-description">Currently building a sustainable online marketplace for users in Saudi Arabia to buy and sell quality pre-owned clothes, books, and collectibles. The platform promotes circular consumption and eco-friendly living while offering affordable options.</p>
-                            <ul class="timeline-description">
-                                <li>Responsible for the full development process, including design and implementation</li>
-                                <li>Developing scalable cloud infrastructure to support marketplace operations</li>
-                                <li>Implementing DevOps practices for continuous deployment</li>
-                            </ul>
-                            <div class="timeline-skills">
-                                <span class="skill-tag">Startup</span>
-                                <span class="skill-tag">E-commerce</span>
-                                <span class="skill-tag">Cloud Architecture</span>
-                                <span class="skill-tag">DevOps</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="company-logo">
-                            <img src="actia1.jpg" alt="Microsoft Azure Logo">
-                        </div>
-                        <div class="timeline-details">
-                            <div class="timeline-date"><i class="far fa-calendar-alt"></i> Jul 2025 - Present</div>
-                            <h3 class="timeline-company">Actia Engineering Services</h3>
-                            <h4 class="timeline-position">Azure Cloud Intern - EV Battery Analytics</h4>
-                            <p class="timeline-description">Developed an end-to-end IoT analytics solution for electric vehicle battery monitoring, from sensor simulation to predictive analytics and real-time dashboard visualization.</p>
-                            <ul class="timeline-description">
-                                <li>Python IoT Simulator: Built a comprehensive Python simulator that mimics real EV battery sensors, sending telemetry data to Azure IoT Hub</li>
-                                <li>Cloud Infrastructure: Architected complete Azure infrastructure including IoT Hub, Stream Analytics, Cosmos DB, and Azure ML services</li>
-                                <li>Data Pipeline: Implemented real-time data streaming and processing pipeline for battery telemetry analysis</li>
-                                <li>Machine Learning: Developed and trained ML models for battery failure prediction and State of Charge (SOC) estimation</li>
-                                <li>Full-Stack Dashboard: Created an Angular + Spring Boot dashboard with real-time visualization and predictive analytics</li>
-                                <li>Cloud ML Deployment: Deployed machine learning models to Azure cloud for scalable predictions</li>
-                            </ul>
-                            <div class="timeline-skills">
-                                <span class="skill-tag">Python</span>
-                                <span class="skill-tag">Azure IoT Hub</span>
-                                <span class="skill-tag">Stream Analytics</span>
-                                <span class="skill-tag">Cosmos DB</span>
-                                <span class="skill-tag">Azure ML</span>
-                                <span class="skill-tag">Angular</span>
-                                <span class="skill-tag">Spring Boot</span>
-                                <span class="skill-tag">Predictive Analytics</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="company-logo">
-                            <img src="assets/images/prestacode.png" alt="Prestacode Logo">
-                        </div>
-                        <div class="timeline-details">
-                            <div class="timeline-date"><i class="far fa-calendar-alt"></i> Jun 2024 - Aug 2024</div>
-                            <h3 class="timeline-company">Prestacode</h3>
-                            <h4 class="timeline-position">Full-stack Developer</h4>
-                            <p class="timeline-description">Developed a comprehensive billing system using Angular for the frontend and Spring Boot for the backend.</p>
-                            <ul class="timeline-description">
-                                <li>CRUD Functionality: Seamlessly managed invoices, clients, and payment methods</li>
-                                <li>User-friendly Interface: Designed and implemented a responsive UI leveraging Bootstrap</li>
-                                <li>Backend Integration: Built RESTful APIs with Spring Boot for efficient data management</li>
-                                <li>Scalability & Performance: Optimized the system for future enhancements</li>
-                            </ul>
-                            <div class="timeline-skills">
-                                <span class="skill-tag">Angular</span>
-                                <span class="skill-tag">Spring Boot</span>
-                                <span class="skill-tag">MySQL</span>
-                                <span class="skill-tag">RESTful APIs</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="company-logo">
-                            <img src="assets/images/freelancer-logo.png" alt="Freelance Logo">
-                        </div>
-                        <div class="timeline-details">
-                            <div class="timeline-date"><i class="far fa-calendar-alt"></i> Jan 2024 - May 2024</div>
-                            <h3 class="timeline-company">Freelance Project</h3>
-                            <h4 class="timeline-position">Full-stack Developer</h4>
-                            <p class="timeline-description">Developed a comprehensive Complaints Management System, improving issue resolution efficiency.</p>
-                            <ul class="timeline-description">
-                                <li>Automated Email Notifications: Implemented email module to notify users about complaint statuses</li>
-                                <li>Comprehensive Statistics: Created services to generate detailed reports and analytics</li>
-                                <li>Advanced Search: Designed dynamic search features for efficient complaint location</li>
-                                <li>Security Enhancements: Implemented robust security measures</li>
-                            </ul>
-                            <div class="timeline-skills">
-                                <span class="skill-tag">Symfony</span>
-                                <span class="skill-tag">PHP</span>
-                                <span class="skill-tag">JavaScript</span>
-                                <span class="skill-tag">MySQL</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="company-logo">
-                            <img src="assets/images/mytt.jpg" alt="Tunisie Telecom Logo">
-                        </div>
-                        <div class="timeline-details">
-                            <div class="timeline-date"><i class="far fa-calendar-alt"></i> Jul 2022 - Sep 2022</div>
-                            <h3 class="timeline-company">Tunisie Telecom</h3>
-                            <h4 class="timeline-position">Network Engineering Intern</h4>
-                            <p class="timeline-description">Gained hands-on experience in telecommunications network infrastructure.</p>
-                            <ul class="timeline-description">
-                                <li>Configured and maintained networking equipment</li>
-                                <li>Assisted in designing and implementing telecommunications networks</li>
-                                <li>Enhanced infrastructure reliability to support 50+ additional devices</li>
-                                <li>Worked closely with senior engineers to troubleshoot network issues</li>
-                            </ul>
-                            <div class="timeline-skills">
-                                <span class="skill-tag">Networking</span>
-                                <span class="skill-tag">CCNA</span>
-                                <span class="skill-tag">Routing</span>
-                                <span class="skill-tag">Switching</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<section class="experience-section">
+  <div class="container">
+    <h2 class="section-title">Professional Experience</h2>
+    <p class="section-subtitle">Internships, freelance work and my own startup, from network engineering to cloud-native platforms.</p>
+    <div class="timeline">
 
-    <!-- Footer -->
-    <footer id="contact">
-        <div class="container">
-            <div class="footer-links">
-                <a href="index.html">Home</a>
-                <a href="skills.html">Skills</a>
-                <a href="experience.html" class="active">Experience</a>
-                <a href="projects.html">Projects</a>
-                <a href="education.html">Education</a>
-                <a href="creative.html">Creativity</a>
-                <a href="#contact">Contact</a>
-            </div>
-            <div class="social-links">
-                <a href="#"><i class="fab fa-github"></i></a>
-                <a href="#"><i class="fab fa-linkedin"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fas fa-envelope"></i></a>
-            </div>
-            <p class="copyright">© 2025 Mohamed Khelifi. All rights reserved.</p>
+      <article class="xp-card">
+        <div class="xp-media" role="img" aria-label="Ampere Software Technology, Renault Group logo"><i class="fas fa-car" aria-hidden="true"></i><span class="xp-img" style="background-image:url('assets/images/ampere.png')"></span></div>
+        <div class="xp-body">
+          <div class="xp-date">Feb 2026 – Aug 2026</div>
+          <h3 class="xp-company">Ampere Software Technology, Renault Group</h3>
+          <p class="xp-role">Cloud &amp; Software Engineering Intern</p>
+          <p class="xp-location">Tunis, Tunisia</p>
+          <ul class="xp-list">
+            <li>Designed and developed a proof of concept for a cloud-native OTA platform, evaluating the replacement of the commercial Harman Samsung solution</li>
+            <li>Developed Go backend services and a React administration interface to manage deployment campaigns, vehicle tracking and fleet administration</li>
+            <li>Designed and deployed a secure GCP infrastructure with VPC, IAM, Service Accounts, Cloud Run, Firestore, Cloud Storage and an HTTP Load Balancer based on a Serverless NEG</li>
+            <li>Integrated Okta authentication using OIDC and built vehicle simulators on AOSP Cuttlefish, supported by Rust scripts, to validate OTA communication between the cloud and embedded systems</li>
+          </ul>
+          <div class="xp-tags"><span class="skill-tag">Go</span><span class="skill-tag">React</span><span class="skill-tag">Docker</span><span class="skill-tag">Rust</span><span class="skill-tag">GCP</span><span class="skill-tag">Cloud Run</span><span class="skill-tag">VPC</span><span class="skill-tag">IAM</span><span class="skill-tag">Firestore</span><span class="skill-tag">Cloud Storage</span><span class="skill-tag">Load Balancing</span><span class="skill-tag">Serverless NEG</span><span class="skill-tag">Okta</span><span class="skill-tag">OIDC</span><span class="skill-tag">AOSP Cuttlefish</span></div>
         </div>
-    </footer>
+      </article>
 
-   
-    <script src="assets/js/main.js"></script>
+      <article class="xp-card">
+        <div class="xp-media" role="img" aria-label="Actia Engineering Services logo"><i class="fas fa-microchip" aria-hidden="true"></i><span class="xp-img" style="background-image:url('actia1.jpg')"></span></div>
+        <div class="xp-body">
+          <div class="xp-date">Jul 2025 – Sep 2025</div>
+          <h3 class="xp-company">Actia Engineering Services</h3>
+          <p class="xp-role">Cloud &amp; AI Engineering Intern</p>
+          <p class="xp-location">Tunis, Tunisia</p>
+          <ul class="xp-list">
+            <li>Designed and implemented a real-time IoT pipeline on Azure to ingest, process and store electric vehicle telemetry, fed by a Python battery sensor simulator</li>
+            <li>Developed and deployed two LSTM models on Azure Machine Learning for state-of-charge forecasting and anomaly detection using an LSTM autoencoder</li>
+            <li>Automated the machine learning model lifecycle to enable model execution and analysis in a cloud environment</li>
+            <li>Created an Angular and Spring Boot dashboard with real-time visualization and predictive analytics</li>
+          </ul>
+          <div class="xp-tags"><span class="skill-tag">Microsoft Azure</span><span class="skill-tag">IoT Hub</span><span class="skill-tag">Stream Analytics</span><span class="skill-tag">Azure Functions</span><span class="skill-tag">Cosmos DB</span><span class="skill-tag">Azure ML</span><span class="skill-tag">Python</span><span class="skill-tag">LSTM</span><span class="skill-tag">Angular</span><span class="skill-tag">Spring Boot</span></div>
+        </div>
+      </article>
+
+      <article class="xp-card">
+        <div class="xp-media" role="img" aria-label="Lemon Interactive logo"><i class="fas fa-lemon" aria-hidden="true"></i><span class="xp-img" style="background-image:url('assets/images/lemon.jpg')"></span></div>
+        <div class="xp-body">
+          <div class="xp-date">Sep 2024 – Present</div>
+          <h3 class="xp-company">Lemon Interactive</h3>
+          <p class="xp-role">Founder &amp; Developer</p>
+          <p class="xp-desc">Building a sustainable online marketplace for users in Saudi Arabia to buy and sell quality pre-owned clothes, books and collectibles. The platform promotes circular consumption and eco-friendly living while offering affordable options.</p>
+          <ul class="xp-list">
+            <li>Responsible for the full development process, including design and implementation</li>
+            <li>Developing scalable cloud infrastructure to support marketplace operations</li>
+            <li>Implementing DevOps practices for continuous deployment</li>
+          </ul>
+          <div class="xp-tags"><span class="skill-tag">Startup</span><span class="skill-tag">E-commerce</span><span class="skill-tag">Cloud Architecture</span><span class="skill-tag">DevOps</span></div>
+        </div>
+      </article>
+
+      <article class="xp-card">
+        <div class="xp-media" role="img" aria-label="Prestacode logo"><i class="fas fa-file-invoice" aria-hidden="true"></i><span class="xp-img" style="background-image:url('assets/images/prestacode.png')"></span></div>
+        <div class="xp-body">
+          <div class="xp-date">Jun 2024 – Aug 2024</div>
+          <h3 class="xp-company">Prestacode</h3>
+          <p class="xp-role">Full-stack Developer</p>
+          <p class="xp-desc">Developed a billing system with Angular on the frontend and Spring Boot on the backend.</p>
+          <ul class="xp-list">
+            <li>Managed invoices, clients and payment methods through full CRUD functionality</li>
+            <li>Designed and implemented a responsive UI with Bootstrap</li>
+            <li>Built RESTful APIs with Spring Boot for efficient data management</li>
+            <li>Optimized the system for scalability and future enhancements</li>
+          </ul>
+          <div class="xp-tags"><span class="skill-tag">Angular</span><span class="skill-tag">Spring Boot</span><span class="skill-tag">MySQL</span><span class="skill-tag">RESTful APIs</span></div>
+        </div>
+      </article>
+
+      <article class="xp-card">
+        <div class="xp-media" role="img" aria-label="Freelance logo"><i class="fas fa-laptop-code" aria-hidden="true"></i><span class="xp-img" style="background-image:url('assets/images/freelancer-logo.png')"></span></div>
+        <div class="xp-body">
+          <div class="xp-date">Jan 2024 – May 2024</div>
+          <h3 class="xp-company">Freelance Project</h3>
+          <p class="xp-role">Full-stack Developer</p>
+          <p class="xp-desc">Developed a Complaints Management System that improved issue resolution efficiency.</p>
+          <ul class="xp-list">
+            <li>Implemented an email module that notifies users about complaint statuses</li>
+            <li>Created services that generate detailed reports and analytics</li>
+            <li>Designed dynamic search features to locate complaints quickly</li>
+            <li>Implemented security measures to protect user data</li>
+          </ul>
+          <div class="xp-tags"><span class="skill-tag">Symfony</span><span class="skill-tag">PHP</span><span class="skill-tag">JavaScript</span><span class="skill-tag">MySQL</span></div>
+        </div>
+      </article>
+
+      <article class="xp-card">
+        <div class="xp-media" role="img" aria-label="Tunisie Telecom logo"><i class="fas fa-network-wired" aria-hidden="true"></i><span class="xp-img" style="background-image:url('assets/images/mytt.jpg')"></span></div>
+        <div class="xp-body">
+          <div class="xp-date">Jul 2022 – Sep 2022</div>
+          <h3 class="xp-company">Tunisie Telecom</h3>
+          <p class="xp-role">Network Engineering Intern</p>
+          <p class="xp-desc">Gained hands-on experience in telecommunications network infrastructure.</p>
+          <ul class="xp-list">
+            <li>Configured and maintained networking equipment</li>
+            <li>Assisted in designing and implementing telecommunications networks</li>
+            <li>Enhanced infrastructure reliability to support 50+ additional devices</li>
+            <li>Worked closely with senior engineers to troubleshoot network issues</li>
+          </ul>
+          <div class="xp-tags"><span class="skill-tag">Networking</span><span class="skill-tag">CCNA</span><span class="skill-tag">Routing</span><span class="skill-tag">Switching</span></div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="container">
+    <div class="u-cta">
+      <h2>Let's build something.</h2>
+      <p>Hiring a cloud or DevOps engineer? Send me an email.</p>
+      <a href="mailto:md.khelifi@hotmail.com" class="btn">md.khelifi@hotmail.com</a>
+    </div>
+    <div class="social-links">
+      <a href="https://github.com/Hamoda73" aria-label="GitHub"><i class="fab fa-github"></i></a>
+      <a href="https://www.linkedin.com/in/khelifimohamed/" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      <a href="https://x.com/HamodiStuff" aria-label="X (Twitter)"><i class="fab fa-twitter"></i></a>
+      <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="mailto:md.khelifi@hotmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+    </div>
+    <div class="footer-links"><a href="index.html">Home</a><a href="skills.html">Skills</a><a href="experience.html" class="active">Experience</a><a href="projects.html">Projects</a><a href="education.html">Education</a><a href="creative.html">Creativity</a><a href="#contact">Contact</a></div>
+    <p class="copyright">© 2026 Mohamed Khelifi. All rights reserved.</p>
+  </div>
+</footer>
+<script src="assets/js/main.js"></script>
 </body>
 </html>
